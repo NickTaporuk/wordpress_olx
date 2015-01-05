@@ -1,7 +1,405 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: nicktaporuk
- * Date: 05.01.15
- * Time: 20:05
- */ 
+        global $wpdb;
+//        var_dump($_POST);
+        var_dump($wpdb);
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taimi</title>
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
+    <link href='<?php echo get_template_directory_uri(); ?>/style.css' rel='stylesheet' type='text/css'>
+    <script src="<?php echo get_template_directory_uri(); ?>/js/jquery-1.10.2.min.js"></script>
+    <script src="<?php echo get_template_directory_uri(); ?>/js/scripts.js"></script>
+    <script src="<?php echo get_template_directory_uri(); ?>/js/bootstrap.tab.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <link rel="stylesheet" media="all" href="css/ie.css" />
+    <![endif]-->
+</head>
+<body>
+<div id="welcome" class="welcome flex-holder">
+    <a href="#online-users" class="scrolldown">Scroll down</a>
+    <div class="flex-cont">
+        <div class="brand-place">
+            <strong class="logo"><a href="#">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/logo.png"/>
+                </a>
+            </strong>
+            <div class="mantra">
+                <h1 class="show">
+                    <p><strong>meet</strong>&nbsp;new people.</p>
+                    <p><strong>play</strong>&nbsp;the game.</p>
+                    <p><strong>it's</strong>&nbsp;easy<strong>&amp;</strong>fun.</p>
+                </h1>
+            </div>
+        </div><!-- / brand-place -->
+        <div class="form-place">
+            <form action="/" method="post">
+                <ul class="tabset" data-tabs="tabs">
+                    <li class="active"><a href="#register" data-toggle="tab">Register</a></li>
+                    <li><a href="#login" data-toggle="tab">Login</a></li>
+                </ul><!-- / tabset -->
+                <div class="tab-content">
+                    <div id="register" class="tab-pane active">
+                        <input class="form-control" name="email" type="email" placeholder="Email">
+                        <input class="form-control" name="password" type="password" placeholder="Password">
+                        <ul class="data-swith">
+                            <li><a href="#" name="gender['m']">Male</a></li>
+                            <li><a href="#" name="gender['f']">Female</a></li>
+                        </ul>
+                        <button class="btn green" type="submit">Register</button>
+                        <p></p>
+                        <div class="divider">
+                            <span>or</span>
+                        </div>
+                        <a href="#" class="btn facebook">Login with facebook</a>
+                        <p class="note">We will not disclose your personally identifiable information to any person or company .</p>
+                    </div><!-- / register -->
+                    <div id="login" class="tab-pane">
+                        <input class="form-control" type="email" placeholder="Email">
+                        <input class="form-control" type="password" placeholder="Password">
+                        <button class="btn green" type="submit">Login</button>
+                        <p><a href="#">Forgot password?</a></p>
+                        <div class="divider">
+                            <span>or</span>
+                        </div>
+                        <a href="#" class="btn facebook">Login with facebook</a>
+                        <p class="note">We will not disclose your personally identifiable information to any person or company .</p>
+                    </div><!-- / login -->
+                </div>
+            </form>
+        </div><!-- / form-place -->
+    </div>
+</div><!-- / welcome -->
+<div id="online-users" class="online-users">
+<header class="heading">
+    <div class="container">
+        <strong>See who’s online</strong>
+        Look people you like. Find new friends.
+    </div>
+</header><!-- / heading -->
+<div class="container">
+<div class="users">
+<div class="user-card online">
+    <span class="cover pat-1">&nbsp;</span>
+    <div class="avatar">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/photo-01.jpg" alt="image" />
+    </div>
+    <strong class="name">Ann <span class="status"></span></strong>
+    <div class="bottom">
+        <a href="#" class="btn">View profile</a>
+    </div>
+</div><!-- / user-card -->
+<div class="user-card online">
+    <span class="cover pat-2">&nbsp;</span>
+    <div class="avatar">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/photo-01.jpg" alt="image" />
+    </div>
+    <strong class="name">Maria <span class="status"></span></strong>
+    <div class="bottom">
+        <a href="#" class="btn">View profile</a>
+    </div>
+</div><!-- / user-card -->
+<div class="user-card online">
+    <span class="cover pat-3">&nbsp;</span>
+    <div class="avatar">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/photo-01.jpg" alt="image" />
+    </div>
+    <strong class="name">Kate <span class="status"></span></strong>
+    <div class="bottom">
+        <a href="#" class="btn">View profile</a>
+    </div>
+</div><!-- / user-card -->
+<div class="user-card online">
+    <span class="cover pat-4">&nbsp;</span>
+    <div class="avatar">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/photo-01.jpg" alt="image" />
+    </div>
+    <strong class="name">Lisa <span class="status"></span></strong>
+    <div class="bottom">
+        <a href="#" class="btn">View profile</a>
+    </div>
+</div><!-- / user-card -->
+<div class="user-card online">
+    <span class="cover pat-5">&nbsp;</span>
+    <div class="avatar">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/photo-01.jpg" alt="image" />
+    </div>
+    <strong class="name">Joshua <span class="status"></span></strong>
+    <div class="bottom">
+        <a href="#" class="btn">View profile</a>
+    </div>
+</div><!-- / user-card -->
+<div class="user-card online">
+    <span class="cover pat-6">&nbsp;</span>
+    <div class="avatar">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/photo-01.jpg" alt="image" />
+    </div>
+    <strong class="name">Ann <span class="status"></span></strong>
+    <div class="bottom">
+        <a href="#" class="btn">View profile</a>
+    </div>
+</div><!-- / user-card -->
+<div class="user-card online">
+    <span class="cover pat-7">&nbsp;</span>
+    <div class="avatar">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/photo-01.jpg" alt="image" />
+    </div>
+    <strong class="name">Maria <span class="status"></span></strong>
+    <div class="bottom">
+        <a href="#" class="btn">View profile</a>
+    </div>
+</div><!-- / user-card -->
+<div class="user-card online">
+    <span class="cover pat-8">&nbsp;</span>
+    <div class="avatar">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/photo-01.jpg" alt="image" />
+    </div>
+    <strong class="name">Kate <span class="status"></span></strong>
+    <div class="bottom">
+        <a href="#" class="btn">View profile</a>
+    </div>
+</div><!-- / user-card -->
+<div class="user-card online">
+    <span class="cover pat-9">&nbsp;</span>
+    <div class="avatar">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/photo-01.jpg" alt="image" />
+    </div>
+    <strong class="name">Lisa <span class="status"></span></strong>
+    <div class="bottom">
+        <a href="#" class="btn">View profile</a>
+    </div>
+</div><!-- / user-card -->
+<div class="user-card online">
+    <span class="cover pat-10">&nbsp;</span>
+    <div class="avatar">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/photo-01.jpg" alt="image" />
+    </div>
+    <strong class="name">Joshua <span class="status"></span></strong>
+    <div class="bottom">
+        <a href="#" class="btn">View profile</a>
+    </div>
+</div><!-- / user-card -->
+<div class="user-card online">
+    <span class="cover pat-11">&nbsp;</span>
+    <div class="avatar">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/photo-01.jpg" alt="image" />
+    </div>
+    <strong class="name">Ann <span class="status"></span></strong>
+    <div class="bottom">
+        <a href="#" class="btn">View profile</a>
+    </div>
+</div><!-- / user-card -->
+<div class="user-card online">
+    <span class="cover pat-12">&nbsp;</span>
+    <div class="avatar">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/photo-01.jpg" alt="image" />
+    </div>
+    <strong class="name">Maria <span class="status"></span></strong>
+    <div class="bottom">
+        <a href="#" class="btn">View profile</a>
+    </div>
+</div><!-- / user-card -->
+<div class="user-card online">
+    <span class="cover pat-13">&nbsp;</span>
+    <div class="avatar">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/photo-01.jpg" alt="image" />
+    </div>
+    <strong class="name">Kate <span class="status"></span></strong>
+    <div class="bottom">
+        <a href="#" class="btn">View profile</a>
+    </div>
+</div><!-- / user-card -->
+<div class="user-card online">
+    <span class="cover pat-14">&nbsp;</span>
+    <div class="avatar">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/photo-01.jpg" alt="image" />
+    </div>
+    <strong class="name">Lisa <span class="status"></span></strong>
+    <div class="bottom">
+        <a href="#" class="btn">View profile</a>
+    </div>
+</div><!-- / user-card -->
+<div class="user-card online">
+    <span class="cover pat-15">&nbsp;</span>
+    <div class="avatar">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/photo-01.jpg" alt="image" />
+    </div>
+    <strong class="name">Joshua <span class="status"></span></strong>
+    <div class="bottom">
+        <a href="#" class="btn">View profile</a>
+    </div>
+</div><!-- / user-card -->
+<div class="user-card online">
+    <span class="cover pat-16">&nbsp;</span>
+    <div class="avatar">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/photo-01.jpg" alt="image" />
+    </div>
+    <strong class="name">Ann <span class="status"></span></strong>
+    <div class="bottom">
+        <a href="#" class="btn">View profile</a>
+    </div>
+</div><!-- / user-card -->
+<div class="user-card online">
+    <span class="cover pat-17">&nbsp;</span>
+    <div class="avatar">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/photo-01.jpg" alt="image" />
+    </div>
+    <strong class="name">Maria <span class="status"></span></strong>
+    <div class="bottom">
+        <a href="#" class="btn">View profile</a>
+    </div>
+</div><!-- / user-card -->
+<div class="user-card online">
+    <span class="cover pat-18">&nbsp;</span>
+    <div class="avatar">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/photo-01.jpg" alt="image" />
+    </div>
+    <strong class="name">Kate <span class="status"></span></strong>
+    <div class="bottom">
+        <a href="#" class="btn">View profile</a>
+    </div>
+</div><!-- / user-card -->
+<div class="user-card online">
+    <span class="cover pat-19">&nbsp;</span>
+    <div class="avatar">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/photo-01.jpg" alt="image" />
+    </div>
+    <strong class="name">Lisa <span class="status"></span></strong>
+    <div class="bottom">
+        <a href="#" class="btn">View profile</a>
+    </div>
+</div><!-- / user-card -->
+<div class="user-card online">
+    <span class="cover pat-20">&nbsp;</span>
+    <div class="avatar">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/photo-01.jpg" alt="image" />
+    </div>
+    <strong class="name">Joshua <span class="status"></span></strong>
+    <div class="bottom">
+        <a href="#" class="btn">View profile</a>
+    </div>
+</div><!-- / user-card -->
+</div>
+</div><!-- / users -->
+</div><!-- / online-users -->
+<div class="customize">
+    <div class="container">
+        <div class="visual">
+            <div class="user-card">
+                <span class="cover">&nbsp;</span>
+                <div class="avatar">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/user-photo.jpg" alt="image" />
+                </div>
+                <strong class="name">Lisa</strong>
+            </div><!-- / user-card -->
+            <div class="head-section">
+                <strong>Customize</strong>
+                your profile
+            </div><!-- / head-section -->
+            <div class="pattern pos-01">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/pat-01.jpg" alt="image" />
+            </div>
+            <div class="pattern pos-02">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/pat-02.jpg" alt="image" />
+            </div>
+            <div class="pattern pos-03">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/pat-03.jpg" alt="image" />
+            </div>
+            <div class="pattern pos-04">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/pat-04.jpg" alt="image" />
+            </div>
+            <div class="pattern pos-05">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/pat-05.jpg" alt="image" />
+            </div>
+            <div class="pattern pos-06">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/pat-06.jpg" alt="image" />
+            </div>
+            <div class="pattern pos-07">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/pat-07.jpg" alt="image" />
+            </div>
+            <div class="pattern pos-08">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/pat-08.jpg" alt="image" />
+            </div>
+            <div class="pattern pos-09">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/pat-09.jpg" alt="image" />
+            </div>
+            <div class="pattern pos-10">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/pat-10.jpg" alt="image" />
+            </div>
+            <div class="pattern pos-11">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/pat-11.jpg" alt="image" />
+            </div>
+        </div>
+    </div>
+</div><!-- / customize -->
+<div class="meet container">
+    <div class="img">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/img-01.jpg" alt="image" />
+        <div class="head-section">
+            <strong>Meet people</strong>
+            you want to meet
+        </div><!-- / head-section -->
+    </div>
+</div><!-- / meet -->
+<div id="registration" class="welcome flex-holder">
+    <div class="flex-cont">
+        <div class="brand-place">
+            <strong class="logo"><a href="#"><img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="image" /></a></strong>
+            <div class="mantra">
+                <h1 class="show">
+                    <p><strong>meet</strong>&nbsp;new people.</p>
+                    <p><strong>play</strong>&nbsp;the game.</p>
+                    <p><strong>it's</strong>&nbsp;easy<strong>&amp;</strong>fun.</p>
+                </h1>
+            </div>
+        </div><!-- / brand-place -->
+        <div class="form-place">
+            <form action="/" method="post">
+                <ul class="tabset" data-tabs="tabs">
+                    <li class="active"><a href="#register-02" data-toggle="tab">Register</a></li>
+                    <li><a href="#login-02" data-toggle="tab">Login</a></li>
+                </ul><!-- / tabset -->
+                <div class="tab-content">
+                    <div id="register-02" class="tab-pane active">
+                        <input class="form-control" type="email" placeholder="Email">
+                        <input class="form-control" type="password" placeholder="Password">
+                        <ul class="data-swith">
+                            <li><a href="#">Male</a></li>
+                            <li><a href="#">Female</a></li>
+                        </ul>
+                        <button class="btn green" type="submit">Register</button>
+                        <p></p>
+                        <div class="divider">
+                            <span>or</span>
+                        </div>
+                        <a href="#" class="btn facebook">Login with facebook</a>
+                        <p class="note">We will not disclose your personally identifiable information to any person or company .</p>
+                    </div><!-- / register -->
+                    <div id="login-02" class="tab-pane">
+                        <input class="form-control" type="email" name="email" placeholder="Email">
+                        <input class="form-control" type="password" name="password" placeholder="Password">
+                        <button class="btn green" type="submit">Login</button>
+                        <p><a href="#">Forgot password?</a></p>
+                        <div class="divider">
+                            <span>or</span>
+                        </div>
+                        <a href="#" class="btn facebook">Login with facebook</a>
+                        <p class="note">We will not disclose your personally identifiable information to any person or company .</p>
+                    </div><!-- / login -->
+                </div>
+            </form>
+        </div><!-- / form-place -->
+    </div>
+</div><!-- / welcome -->
+<footer id="footer">
+    <div class="container">
+        <p>2014 &copy; Taimi. All rights reserved</p>
+    </div>
+</footer>
+</body>
+</html>
