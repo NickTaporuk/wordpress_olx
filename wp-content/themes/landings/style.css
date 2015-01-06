@@ -724,9 +724,3 @@ select:focus{outline:none;}
     padding:16px 0;
 }
 #footer p{margin:0;}
-
-/*
-#welcome > div > div.brand-place > strong > a > img{
-    background: url('images/logo.png') no-repeat;
-    height: 100px;
-}*/
