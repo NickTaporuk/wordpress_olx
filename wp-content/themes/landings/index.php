@@ -1,7 +1,7 @@
 <?php
-        global $wpdb;
+        //global $wpdb;
 //        var_dump($_POST);
-        var_dump($wpdb);
+        //var_dump($wpdb);
 ?>
 <!DOCTYPE html>
 <html lang="en">
